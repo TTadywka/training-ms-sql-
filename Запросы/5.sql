@@ -1,0 +1,26 @@
+--alter procedure p8_1(
+--@table_name nvarchar(20),
+--@column_name nvarchar(40))
+--as 
+--declare @date_up nvarchar(150);
+--if (SELECT TYPE_NAME(system_type_id) 
+--FROM sys.columns 
+--WHERE name = @column_name
+--AND [object_id] = OBJECT_ID(@table_name)) = 'date'
+--	begin
+--		set @date_up = 'update ['+@table_name+'] set '+@column_name+'= GETDATE();'
+--end
+--if (SELECT TYPE_NAME(system_type_id) 
+--FROM sys.columns 
+--WHERE name = @column_name
+--AND [object_id] = OBJECT_ID(@table_name)) != 'date'
+--	begin
+--		raiserror('Тип данных колонки не date',16,1)
+--		end
+--	execute(@date_up);
+
+--	begin tran
+--	execute p8_1 'authors','last_extradition';
+--	select * from authors
+--	rollback tran
+
